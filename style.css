@@ -1,0 +1,811 @@
+/* 01 Typography system
+font-size(px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 40 / 44 / 52 / 62 / 74 / 86 / 98
+
+Line-Height
+By Default--1
+
+Font Weight
+By Default--400
+
+Spacing 
+2 / 4 / 8 / 12 / 16 / 24 /32 / 48 / 64 / 80 / 96 / 128
+
+
+002--- Colors
+
+Primary:#e67e22
+Tints:#fdf2e9
+Shades:
+Accents:
+Grays: #555S
+
+
+005--- Shadows
+
+
+006---Border Radius
+
+
+007--- WhiteSpace
+
+*/
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    /* font-size: 10px; */
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Rubik',sans-serif;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    
+    /* Only works when there is no absolutely poistioned relation to body  */
+    overflow-x:hidden ;
+}
+
+
+/**** General Reusable Components *****/
+/***************************/
+.heading__primary{
+    line-height: 1.05;
+    font-size: 3.5rem;
+    margin-bottom: 1.6rem;
+}
+
+.btn,.btn:link,.btn:visited{
+    display: inline-block;
+    padding: 1.1rem 1.9rem;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 1rem;
+    border-style: none;
+
+    /* Put transition on main state  */
+    transition: all 0.3s ease-in-out;
+}
+
+.btn__full:link,.btn__outline:visited{
+    background-color:#e67e22 ;
+    color: #fff;    
+}
+.btn__full:hover,.btn__outline:active{
+    background-color:#cf711f ;
+    /* color: #fff;     */
+}
+.btn__outline:link,.btn__outline:visited{
+    background-color: #fff;
+    color: #555;
+}
+.btn__outline:hover,.btn__outline:active{
+    background-color: #fdf2e9;
+        
+    /* Trick to add border inside */
+    box-shadow: inset 0 0 0 3px #fff;
+}
+.btn__form {
+    background-color: #45260a;
+    color: #fdf2e9;
+    align-self: end;
+    padding: 1.2rem;
+  }
+  
+  .btn__form:hover {
+    background-color: #fff;
+    color: #555;
+  }
+.margin__right__sm{
+    margin-right: 1.6rem !important;
+}
+.margin__bottom__md{
+    margin-bottom: 3rem !important;
+}
+.margin{
+    margin-bottom: 3rem;
+}
+.grid__cols2{
+    grid-template-columns: repeat(2,1fr);
+}
+.grid__cols3{
+    grid-template-columns: repeat(3,1fr);
+}
+.grid__cols4{
+    grid-template-columns: repeat(4,1fr);
+}
+
+.container{
+    max-width: 75rem;
+    padding: 0 2rem;
+    /* margin: 0 4rem ; */
+    margin: 0 auto;
+}
+.grid{
+    display: grid;
+    column-gap: 4rem;
+    row-gap: 6rem;
+   
+}
+.grid:not(:last-child){
+    margin-bottom: 6rem;
+}
+.grid__center__v{
+    align-items: center;
+}
+.heading__primary,.heading__secondary,.heading__tertiary{
+    font-weight: 700;
+    color: #333;
+    /* color: #45260a; */
+    /* color: #343a40; */
+    letter-spacing: -0.5px;
+
+}
+.heading__secondary{
+    font-size: 2.4rem;
+    line-height: 1.2;
+    margin-bottom: 4.4rem;
+}
+.heading__tertiary{
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 1.8rem;
+}
+.sub__heading{
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #cf711f;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.75px;
+}
+.link:link,.link:visited{
+    display: inline-block;
+    text-decoration: none;
+    color: #e67e22;
+    padding-bottom:2px ;
+    border-bottom: 1px solid currentColor;
+    transition: all 0.3s ease-in;
+
+}
+.link:hover{
+    color: #cf711f;
+    border-bottom: 1px solid transparent;
+}
+.center__text{
+    text-align: center;
+}
+
+/***** Header*****/
+/**************************/
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fdf2e9;
+
+    /* Coz we want the header to be sticky */
+    height: 6rem;
+    padding: 0 3.6rem;
+
+    position: relative;
+}
+.logo{
+    height: 1.2rem;
+}
+
+
+/***** Navigation*****/
+/**************************/
+.main__nav__list{
+    display: flex; 
+    align-items: center;
+    list-style: none;
+    gap: 3rem;
+    
+}
+.main__nav__link:link,
+.main__nav__link:visited{
+    display: inline-block;
+    text-decoration: none;    
+    font-size: 1.2rem;
+    font-weight: 500;
+    /* font-weight: bold; */
+    color: #333;  
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;    
+}
+.main__nav__link:hover,.main__nav__list:active{
+    color: #cf711f;
+
+}
+.navlist__btn{
+    background-color: #cf711f;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 11px;
+}
+
+/******Mobile navigation ******/
+/****************************/
+.btn__mobile__nav{
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    display: none;
+}
+.icon__mobile__nav{
+    height: 2rem;
+    width: 2rem;
+    color: #333;
+}
+
+.close__icon{
+    display: none;
+}
+
+
+/******Hero Section ******/
+/****************************/
+.section__hero{
+    background-color:#fdf2e9;
+    /* padding-top:1.2rem ; */
+    /* padding: 2.4rem 0 4.8rem 0; */
+    padding: 3rem 0 6rem 0;
+    /* height: 100vh; */
+
+}
+.hero{
+    max-width: 81.3rem; /** ie 1300px */
+    margin: 0 auto;
+    /* margin: 0 5rem; */
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 6rem;
+    align-items: center;
+}
+
+.hero__description{
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    margin-bottom: 3rem;
+    
+}
+
+.hero__img{
+    width: 100%;
+}
+
+
+.delivered__meals{
+    display: flex;
+    align-items: center ;
+    margin-top: 3rem;
+}
+.delivered__imgs{
+    display: flex;
+}
+.delivered__imgs img{
+    height: 3.2rem;
+    width: 3.2rem;
+    margin-right: -0.8rem;
+    border-radius:50% ;
+    border: 3px solid #fdf2e9;
+   
+}
+.delivered__imgs img:last-child{
+    margin: 0;
+}
+.delivered__text{
+    font-weight: 600;
+    margin: 1rem 0.3rem;
+}
+.delivered__text span{
+    color: #e67e22  ;
+}
+
+/******* Section Featured *******/
+/* *************************/
+.section__featured{
+    padding: 3rem 0 2rem 0;
+    /* padding: 9.6rem 0; */
+
+}
+.heading__featured__in{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 1.6rem;
+    letter-spacing: 0.75px;
+    text-align: center;
+}
+.logos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.logos img{
+    height: 2rem;
+    filter: brightness(0);
+    opacity: 50%;
+   
+}
+
+/******* Section How *******/
+/* *************************/
+.section__how{
+    /* padding: 2.4rem 0 9.6rem 0;     */
+    padding: 6rem 0;
+    /* padding: 2.4rem 0 4.8rem 0; */
+}
+
+.step__img__box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.step__img{
+    width: 30%;
+}
+.step__number{
+    font-size: 5.5rem;
+    font-weight: 500;
+    color: #ddd;
+    margin-bottom: 0.8rem;
+}
+.step__description{
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+.step__img__box::before,.step__img__box::after{
+    content: '';
+    display: block;    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+}
+
+.step__img__box::before{   
+    width: 50%;    
+    /* height: 50%;  it doesnot work in this situation so use padding*/ 
+    padding-bottom:50% ;
+    background-color: #fdf2e9;    
+    z-index: -2;
+}
+.step__img__box::after{
+    width: 40%;    
+    /* height: 50%;  it doesnot work in this situation so use padding*/ 
+    padding-bottom:40% ;
+    background-color: #faefd3;    
+    z-index: -1;    
+}
+
+
+/***** Meal Section*****/
+/**************************/
+
+.section__meals{
+    padding: 6rem 0;
+}
+
+.meal__img{
+    width: 100%;
+}
+.meal{
+    box-shadow: 0 1.5rem 3rem rgba(0,0,0,0.075) ;
+    border-radius: 11px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+.meal:hover{
+    transform: translateY(-1.2rem);
+    box-shadow: 0 2rem 4rem rgba(0,0,0,0.06) ;
+}
+.meal__content{
+    padding: 1rem 1rem 3rem 1rem;
+  
+}
+.meals__tag{
+    margin-bottom: 0.8rem;
+    display: flex;
+    gap: 0.8rem;
+}
+.tag{
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    text-transform: uppercase;   
+    color: #333;
+    border-radius: 6rem;    
+}
+.tag__vegetarian{
+    background-color:#51cf66 ;
+}
+.tag__vegan{
+    background-color:  #94d82d; ;
+}
+.tag__paleo{
+    background-color:#ffd43b ;
+}
+.meal__title{
+    font-size: 1.7rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+.meal__attributes{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    list-style: none;
+}
+.meal__attribute{
+    font-size: 1.1;
+}
+.meal__icons,.diet__icons{
+    color: #e67e22;
+   
+}
+.meal__icons{
+    padding-right:0.5rem ;
+}
+.diet__icons{
+    height: 1rem;
+    font-weight: 600;
+}
+
+strong{
+    font-weight: 600;
+}
+
+.list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.list__item{
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.list__icon{
+    width: 2rem;
+    color: #e67e22;
+}
+
+.all__recipes{
+    text-align: center;
+    margin-top: 3rem;
+}
+
+
+/***** Testimonials*****/
+/**************************/
+.section__testimonials{
+    background-color: #fdf2e9; 
+    display: grid;
+    grid-template-columns: 55fr 45fr;
+    align-items: center;  
+}
+.testimonials__container{
+    padding: 6rem;
+}
+.testimonials{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 3rem;
+    column-gap: 4.8rem;       
+}
+.testimonial__img{
+    width: 6rem;
+    border-radius: 50%;
+    margin-bottom: 0.8rem;
+}
+.testimonial__text{
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+.testimonial__name{
+    color: #6f6f6f;
+    font-size: 1rem;
+}
+.gallery__item{
+    overflow: hidden;
+}
+.gallery__item img{
+    display: block;
+    width: 100%;
+    height: 95%;
+    transition: all 0.3s ease-in;
+}
+.gallery__item img:hover{
+    transform: scale(1.1);
+}
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 0.6rem;   
+    padding: 0.6rem; 
+}
+
+
+
+/***** Pricing Section*****/
+/**************************/
+.section__pricing{
+    padding: 6rem 0;
+}
+.plan__header{
+    text-align: center;
+    margin-bottom: 3rem;
+
+}
+.plan__name{
+    color: #cf711f;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.75;
+    margin-bottom: 2rem;
+
+}
+.plan__price{
+    font-size: 4.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+.plan__price span{
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-right: 0.5rem;
+}
+.pricing__plan{    
+    border-radius: 11px;    
+    width: 75%;
+}
+.pricing__plan__starter{
+    justify-self: end;
+    padding: 3rem;
+    border: 2px solid #fdf2e9;
+}
+.pricing__plan__complete{
+    padding: 3rem;
+    background-color: #fdf2e9;
+    position: relative;
+    overflow: hidden;
+
+}
+.pricing__plan__complete::after{
+    content: 'Best value';
+    position: absolute;
+    top: 6%;
+    right: -18%;
+
+
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background-color: #ffd43b;
+    padding: 0.5rem 5rem;
+    color: #333;
+    transform: rotate(45deg);
+   
+}
+.plan__text{
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #6f6f6f;    
+}
+.plan__sign__up{
+    text-align: center;
+    margin-top: 3rem;
+
+}
+.plan__details{
+    font-size: 1rem;
+    line-height: 1.6rem;
+    text-align: center;    
+}
+
+/******* Features *******/
+/* *************************/
+
+/* .feature{
+
+} */
+.feature__title{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #333;
+}
+.feature__text{
+    font-size: 1.2rem;
+    line-height: 1.6;   
+
+}
+.feature__icon{
+    font-size:2rem ;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #e67e22;
+    background-color: #fdf2e9;
+    height: 2rem;
+    width: 2rem;
+    padding: 1rem;
+    border-radius: 50%;
+        
+}
+
+
+
+/******* Call to action__CTA *******/
+/* *************************/
+.section__cta{
+    padding: 6rem 0;
+}
+.cta{
+    display: grid;
+    grid-template-columns:67fr 33fr;
+    background-image: linear-gradient(to right bottom, #eb984e,#e67e22);
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0,0.15);
+    height: 40rem;
+    border-radius: 11px;
+    overflow: hidden;
+
+}
+.cta__text__box{
+    padding: 4rem;
+    color: #2e1907;
+}
+.cta .heading__secondary{
+    color: #2e1907;
+    margin-bottom: 2rem;
+}
+.cta__text{
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+.cta__img__box{
+    background-image:linear-gradient(to right bottom, rgba(131, 88, 50, 0.466),rgba(136, 81, 33, 0.541)),url(./img/eating.jpg) ;
+    background-size: cover;
+    background-position: center;
+}
+
+.cta__form{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 2rem;
+    row-gap: 1.5rem;
+}
+
+.cta__form label{
+    display: block;
+    font-size: 1.1rem;
+    /* font-family: inherit; */
+    color: inherit;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+}
+.cta__form input{
+    width: 100%;
+    padding: 0.7rem;
+    /* border-style: none; */
+    border: none;
+    font-family: inherit;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.cta__form select{
+    width: 19rem;
+    padding:1rem ;
+    border-style: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-style: none;
+    border-radius: 4px;
+
+}
+
+
+/* FOOTER */
+/**************************/
+
+.footer {
+    padding: 8rem 0;
+    border-top: 1px solid #eee;
+  }
+  
+  .grid--footer {
+    grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+  }
+  
+  .logo-col {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer-logo {
+    display: block;
+    margin-bottom: 2rem;
+  }
+  
+  .social-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .social-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  
+  .copyright {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #767676;
+    margin-top: auto;
+  }
+  
+  .footer-heading {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+  }
+  
+  .contacts {
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .address {
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .footer-link:link,
+  .footer-link:visited {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #767676;
+    transition: all 0.3s;
+  }
+  
+  .footer-link:hover,
+  .footer-link:active {
+    color: #555;
+  }
+
+
